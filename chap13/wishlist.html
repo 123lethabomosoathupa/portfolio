@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish List</title>
+    <link rel="stylesheet" href="wishlist.css">
+</head>
+<body>
+    <!-- Container for the entire list page -->
+<div id="listPage" class="print">
+
+    <!-- Main heading of the page -->
+    <h1>My Wish List</h1>
+  
+    <!-- Section containing the input form -->
+    <div id="formArea">
+
+        <!-- Label and input field for entering a wish list item -->
+        <label>What I want:
+            <input type="text" id="iWant" />
+        </label>
+
+        <!-- Button to add the entered item to the list -->
+        <button type="button" id="addIt">Add It!</button>
+
+        <br><br>
+
+        <!-- Button to trigger the print view of the list -->
+        <button type="button" id="printable">Print Your List</button>
+
+    </div>
+
+    <!-- Unordered list to display the added items -->
+    <ul id="wishList"></ul>
+    
+</div>
+
+      
+    <script src="wishlist.js"></script>
+</body>
+</html>
