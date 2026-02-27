@@ -1,0 +1,21 @@
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(211, 163, 255);
+    text-align: center;
+}
+#instructions {
+    background-color: rgb(183, 244, 255);
+    padding: 6px;
+    margin: 6px;
+}
+#orderForm {
+    width: 75%;
+    margin: 20px auto;
+    border-style: dotted;
+    border-color: black;
+}
+#receipt {
+    background-color: #5a0000;
+    color: yellow;
+    padding: 6px;
+}
