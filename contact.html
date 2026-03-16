@@ -1,88 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Contact Lethabo Mosoathupa" />
-    <meta name="author" content="Lethabo Mosoathupa" />
-    <title>Contact | Lethabo Mosoathupa</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Contact Lethabo Mosoathupa" />
+  <meta name="author" content="Lethabo Mosoathupa" />
+  <title>Contact | Lethabo Mosoathupa</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #0d6efd;
+      --accent-light: #e7f0ff;
+      --accent-dark: #0a58ca;
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --text: #212529;
+      --text-muted: #6c757d;
+      --nav-height: 64px;
+      --radius-card: 14px;
+      --radius-btn: 7px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-  </head>
+    nav { position: sticky; top: 0; z-index: 100; height: var(--nav-height); background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); display: flex; align-items: center; }
+    .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 2rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--text-muted); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
+    .nav-links a:hover { background: var(--accent-light); color: var(--accent-dark); }
+    .nav-links a.active { color: var(--accent-dark); font-weight: 500; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--text); }
+    @media (max-width: 600px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; gap: 0.25rem; }
+      .nav-links.open { display: flex; }
+    }
 
-  <body class="d-flex flex-column h-100 bg-light">
-    <main class="flex-shrink-0">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
-        <div class="container px-5">
-          <a class="navbar-brand fw-bold text-primary" href="index.html">Lethabo Mosoathupa</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
-              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="resume.html">About Me</a></li>
-              <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-              <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    .page-wrap { max-width: 600px; margin: 0 auto; padding: 4rem 2rem 5rem; }
+    .hero { text-align: center; margin-bottom: 2.5rem; }
+    .hero-eyebrow { display: inline-block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 1rem; border: 1px solid var(--accent-light); background: var(--accent-light); padding: 4px 12px; border-radius: 100px; }
+    .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 5vw, 3rem); color: var(--text); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .hero-title em { font-style: italic; color: var(--accent); }
+    .hero-sub { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+    .divider { width: 36px; height: 2px; background: var(--accent); border-radius: 2px; margin: 1.25rem auto; }
 
-      <!-- Contact Section -->
-      <section class="py-5">
-        <div class="container px-5">
-          <div class="text-center mb-5">
-            <h1 class="display-5 fw-bolder text-gradient">Get in Touch</h1>
-            <p class="text-muted">Reach out for collaborations, questions, or check out my project demos on YouTube.</p>
-          </div>
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 2rem; }
 
-          <!-- Contact Info Card -->
-          <div class="row gx-5 justify-content-center">
-            <div class="col-lg-6">
-              <div class="card shadow-sm rounded-4 border-0 p-4 text-center">
-                <h2 class="fw-bold mb-3">Contact Information</h2>
-                <p class="mb-2"><i class="bi bi-envelope-fill me-2"></i>Email: <a href="mailto:lethabo.mosoathupa8@gmail.com">your.email@example.com</a></p>
-                <p class="mb-2"><i class="bi bi-telephone-fill me-2"></i>Phone: +27 67 096 1380</p>
-                <p class="mb-4"><i class="bi bi-geo-alt-fill me-2"></i>Location: Pretoria, South Africa</p>
+    .contact-list { list-style: none; margin-bottom: 2rem; }
+    .contact-list li { display: flex; align-items: center; gap: 0.875rem; padding: 0.875rem 0; border-bottom: 1px solid var(--border); font-size: 0.925rem; }
+    .contact-list li:last-child { border-bottom: none; }
+    .contact-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; color: var(--accent-dark); font-size: 0.95rem; flex-shrink: 0; }
+    .contact-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+    .contact-value { color: var(--text); }
+    .contact-value a { color: var(--accent); text-decoration: none; }
+    .contact-value a:hover { text-decoration: underline; }
 
-                <!-- Social & Professional Links -->
-                <div class="d-flex justify-content-center flex-wrap gap-2">
-                  <a href="https://github.com/123lethabomosoathupa" target="_blank" class="btn btn-dark">
-                    <i class="bi bi-github"></i> GitHub
-                  </a>
-                  <a href="https://www.linkedin.com/in/lethabo-mosoathupa-211558140/" target="_blank" class="btn btn-primary">
-                    <i class="bi bi-linkedin"></i> LinkedIn
-                  </a>
-                  <a href="https://www.youtube.com/@khutsolethabomosoathupa" target="_blank" class="btn btn-danger">
-                    <i class="bi bi-youtube"></i> YouTube
-                  </a>
-                </div>
-              </div>
+    .socials-title { font-size: 0.825rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.875rem; }
+    .socials { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-social { display: inline-flex; align-items: center; gap: 7px; font-size: 0.875rem; font-weight: 500; padding: 9px 18px; border-radius: var(--radius-btn); border: 1px solid var(--border); color: var(--text); text-decoration: none; transition: all 0.15s; font-family: 'DM Sans', sans-serif; background: transparent; }
+    .btn-social:hover { background: var(--accent); color: #fff; border-color: transparent; }
+    .btn-social.yt:hover { background: #dc3545; }
+    .btn-social.gh:hover { background: #212529; }
+    .btn-social.li:hover { background: #0a66c2; }
+
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 1.25rem 2rem; margin-top: auto; }
+    .footer-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); }
+    .footer-inner a { color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .footer-inner a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">Lethabo Mosoathupa</a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+        <i class="bi bi-list" style="font-size:1.4rem;"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resume.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main style="flex:1;">
+    <div class="page-wrap">
+
+      <div class="hero">
+        <span class="hero-eyebrow">Contact</span>
+        <h1 class="hero-title">Get in <em>touch</em></h1>
+        <div class="divider"></div>
+        <p class="hero-sub">Reach out for collaborations, questions, or check out my project demos on YouTube.</p>
+      </div>
+
+      <div class="card">
+        <ul class="contact-list">
+          <li>
+            <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:khutso.mosoathupa@gmail.com">khutso.mosoathupa@gmail.com</a></div>
             </div>
-          </div>
-        </div>
-      </section>
-    </main>
+          </li>
+          <li>
+            <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+27 67 096 1380</div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Gauteng, South Africa</div>
+            </div>
+          </li>
+        </ul>
 
-    <!-- Footer -->
-    <footer class="bg-white py-4 mt-auto border-top">
-      <div class="container px-5">
-        <div class="row align-items-center justify-content-between">
-          <div class="col-auto small">© 2025 Lethabo Mosoathupa</div>
-          <div class="col-auto">
-            <a class="small" href="contact.html">Contact</a>
-          </div>
+        <div class="socials-title">Find me online</div>
+        <div class="socials">
+          <a class="btn-social gh" href="https://github.com/123lethabomosoathupa" target="_blank">
+            <i class="bi bi-github"></i> GitHub
+          </a>
+          <a class="btn-social li" href="https://www.linkedin.com/in/lethabo-mosoathupa-211558140/" target="_blank">
+            <i class="bi bi-linkedin"></i> LinkedIn
+          </a>
+          <a class="btn-social yt" href="https://www.youtube.com/@khutsolethabomosoathupa" target="_blank">
+            <i class="bi bi-youtube"></i> YouTube
+          </a>
         </div>
       </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2025 Lethabo Mosoathupa</span>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+</body>
 </html>
