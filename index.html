@@ -15,13 +15,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --accent: #0d6efd;
-      --accent-light: #e7f0ff;
+      --accent-light: #dce8fb;
       --accent-dark: #0a58ca;
-      --bg: #f8f9fa;
-      --surface: #ffffff;
-      --border: rgba(0,0,0,0.08);
-      --text: #212529;
-      --text-muted: #6c757d;
+      --bg: #d8dce2;
+      --surface: #e2e6eb;
+      --border: rgba(70,82,100,0.22);
+      --text: #0d1117;
+      --text-muted: #3d4a5c;
       --nav-height: 64px;
       --radius-card: 14px;
       --radius-btn: 7px;
@@ -31,7 +31,7 @@
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
     /* NAV */
-    nav { position: sticky; top: 0; z-index: 100; height: var(--nav-height); background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); display: flex; align-items: center; }
+    nav { position: sticky; top: 0; z-index: 100; height: var(--nav-height); background: rgba(220,225,232,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); display: flex; align-items: center; }
     .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 2rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
     .nav-brand { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--text); text-decoration: none; }
     .nav-links { display: flex; gap: 0.25rem; list-style: none; }
@@ -55,7 +55,7 @@
     .hero-sub { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; max-width: 420px; }
     .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; font-weight: 500; padding: 10px 22px; border-radius: var(--radius-btn); border: 1px solid var(--border); color: var(--text-muted); text-decoration: none; transition: all 0.15s; font-family: 'DM Sans', sans-serif; cursor: pointer; background: transparent; }
-    .btn:hover { background: #f2f2f0; color: var(--text); border-color: rgba(0,0,0,0.15); }
+    .btn:hover { background: #cdd2d9; color: var(--text); border-color: rgba(0,0,0,0.15); }
     .btn-primary { background: var(--accent); color: #fff; border-color: transparent; }
     .btn-primary:hover { background: var(--accent-dark); color: #fff; }
     .btn-outline { background: transparent; color: var(--text); border-color: rgba(0,0,0,0.2); }
@@ -73,7 +73,7 @@
     }
 
     /* SECTION */
-    .section { background: var(--surface); border-top: 1px solid var(--border); padding: 4rem 2rem; }
+    .section { background: #cdd2d9; border-top: 1px solid var(--border); padding: 4rem 2rem; }
     .section-inner { max-width: 1000px; margin: 0 auto; }
     .section-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem; }
     .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--text); letter-spacing: -0.02em; margin-bottom: 1.5rem; }
@@ -82,7 +82,7 @@
 
     /* CARDS ROW */
     .cards-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .card { background: #e2e6eb; border: 1px solid var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
     .card:hover { transform: translateY(-3px); box-shadow: 0 4px 20px rgba(0,0,0,0.10); border-color: var(--accent); }
     .card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.1rem; color: var(--accent-dark); }
     .card-title { font-size: 0.925rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
