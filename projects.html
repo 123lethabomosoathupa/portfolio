@@ -1,486 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Portfolio showcasing projects by Lethabo Mosoathupa" />
-    <meta name="author" content="Lethabo Mosoathupa" />
-    <title>My Projects | Lethabo Mosoathupa</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Portfolio showcasing projects by Lethabo Mosoathupa" />
+  <meta name="author" content="Lethabo Mosoathupa" />
+  <title>My Projects | Lethabo Mosoathupa</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #0d6efd;
+      --accent-light: #e7f0ff;
+      --accent-dark: #0a58ca;
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --border-hover: #0d6efd;
+      --text: #212529;
+      --text-muted: #6c757d;
+      --nav-height: 64px;
+      --radius-card: 14px;
+      --radius-btn: 7px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+      --shadow-hover: 0 4px 20px rgba(0,0,0,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    /* ── NAV ── */
+    nav { position: sticky; top: 0; z-index: 100; height: var(--nav-height); background: rgba(220,225,232,0.96); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); display: flex; align-items: center; }
+    .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 2rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 400; color: var(--text-muted); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
+    .nav-links a:hover { background: var(--accent-light); color: var(--accent-dark); }
+    .nav-links a.active { color: var(--accent-dark); font-weight: 500; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--text); }
+    @media (max-width: 600px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; gap: 0.25rem; }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; }
+    }
 
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ── HERO ── */
+    .hero { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem 2.5rem; text-align: center; }
+    .hero-eyebrow { display: inline-block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 1rem; border: 1px solid var(--accent-light); background: var(--accent-light); padding: 4px 12px; border-radius: 100px; }
+    .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.4rem, 5vw, 3.5rem); color: var(--text); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .hero-title em { font-style: italic; color: var(--accent); }
+    .hero-divider { width: 36px; height: 2px; background: var(--accent); margin: 1.25rem auto; border-radius: 2px; }
+    .hero-sub { font-size: 0.95rem; color: var(--text-muted); max-width: 420px; margin: 0 auto; line-height: 1.7; }
 
-      :root {
-        --accent: #0d6efd;
-        --accent-light: #e7f0ff;
-        --accent-dark: #0a58ca;
-        --bg: #f8f9fa;
-        --surface: #ffffff;
-        --border: rgba(0,0,0,0.08);
-        --border-hover: #0d6efd;
-        --text: #212529;
-        --text-muted: #6c757d;
-        --nav-height: 64px;
-        --radius-card: 14px;
-        --radius-btn: 7px;
-        --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
-        --shadow-hover: 0 4px 20px rgba(0,0,0,0.10);
-      }
+    /* ── GRID ── */
+    .grid-wrap { max-width: 1000px; margin: 0 auto; padding: 1rem 2rem 4rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
 
-      html { scroll-behavior: smooth; }
+    /* ── CARD ── */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); display: flex; flex-direction: column; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--border-hover); }
+    .card-header { padding: 1.25rem 1.25rem 1rem; display: flex; align-items: flex-start; gap: 0.875rem; border-bottom: 1px solid var(--border); }
+    .icon-wrap { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .icon-wrap svg { width: 20px; height: 20px; stroke: var(--accent-dark); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .card-meta { flex: 1; min-width: 0; }
+    .card-name { font-size: 0.925rem; font-weight: 500; color: var(--text); line-height: 1.3; margin-bottom: 5px; }
+    .badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 4px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+    .badge-react { background: #e7f0ff; color: #0a58ca; }
+    .badge-mern { background: #e7f0ff; color: #0a58ca; }
+    .badge-django { background: #e7f0ff; color: #0a58ca; }
+    .badge-js { background: #fff3cd; color: #664d03; }
+    .card-body { padding: 1rem 1.25rem 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .card-desc { font-size: 0.825rem; line-height: 1.65; color: var(--text-muted); flex: 1; }
+    .card-links { display: flex; gap: 7px; margin-top: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 500; padding: 5px 12px; border-radius: var(--radius-btn); border: 1px solid var(--border); color: var(--text-muted); text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s; font-family: 'DM Sans', sans-serif; cursor: pointer; background: transparent; white-space: nowrap; }
+    .btn:hover { background: #cdd2d9; color: var(--text); border-color: rgba(0,0,0,0.15); }
+    .btn-primary { background: var(--accent-light); color: var(--accent-dark); border-color: transparent; }
+    .btn-primary:hover { background: var(--accent); color: #fff; border-color: transparent; }
 
-      body {
-        font-family: 'DM Sans', sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
+    /* ── CTA SECTION ── */
+    .cta-section { background: var(--surface); border-top: 1px solid var(--border); padding: 3.5rem 2rem; text-align: center; }
+    .cta-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.2rem); color: var(--text); margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 8px; padding: 11px 28px; font-size: 0.9rem; font-weight: 500; background: var(--accent); color: #fff; border: none; border-radius: var(--radius-btn); font-family: 'DM Sans', sans-serif; text-decoration: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+    .btn-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
-      /* ── NAV ── */
-      nav {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        height: var(--nav-height);
-        background: rgba(220,225,232,0.96);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-      }
-      .nav-inner {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .nav-brand {
-        font-family: 'DM Serif Display', serif;
-        font-size: 1.15rem;
-        color: var(--text);
-        text-decoration: none;
-        letter-spacing: -0.01em;
-      }
-      .nav-links {
-        display: flex;
-        gap: 0.25rem;
-        list-style: none;
-      }
-      .nav-links a {
-        font-size: 0.875rem;
-        font-weight: 400;
-        color: var(--text-muted);
-        text-decoration: none;
-        padding: 6px 12px;
-        border-radius: 6px;
-        transition: background 0.15s, color 0.15s;
-      }
-      .nav-links a:hover { background: var(--accent-light); color: var(--accent-dark); }
-      .nav-links a.active { color: var(--accent-dark); font-weight: 500; }
+    /* ── FOOTER ── */
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 1.25rem 2rem; margin-top: auto; }
+    .footer-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); }
+    .footer-inner a { color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+    .footer-inner a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
 
-      /* hamburger */
-      .nav-toggle {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 6px;
-        color: var(--text);
-      }
-      @media (max-width: 600px) {
-        .nav-toggle { display: block; }
-        .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; gap: 0.25rem; }
-        .nav-links.open { display: flex; }
-        .nav-links a { display: block; }
-      }
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Lethabo Mosoathupa</a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <i class="bi bi-list" style="font-size:1.4rem;"></i>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resume.html">About Me</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-      /* ── HERO ── */
-      .hero {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 4rem 2rem 2.5rem;
-        text-align: center;
-      }
-      .hero-eyebrow {
-        display: inline-block;
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--accent);
-        font-weight: 500;
-        margin-bottom: 1rem;
-        border: 1px solid var(--accent-light);
-        background: var(--accent-light);
-        padding: 4px 12px;
-        border-radius: 100px;
-      }
-      .hero-title {
-        font-family: 'DM Serif Display', serif;
-        font-size: clamp(2.4rem, 5vw, 3.5rem);
-        color: var(--text);
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-bottom: 1rem;
-      }
-      .hero-title em {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .hero-divider {
-        width: 36px;
-        height: 2px;
-        background: var(--accent);
-        margin: 1.25rem auto;
-        border-radius: 2px;
-      }
-      .hero-sub {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        max-width: 420px;
-        margin: 0 auto;
-        line-height: 1.7;
-      }
+<main style="flex:1;">
 
-      /* ── GRID ── */
-      .grid-wrap {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 1rem 2rem 4rem;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.25rem;
-      }
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-eyebrow">Portfolio</span>
+    <h1 class="hero-title">Projects by<br><em>Lethabo Mosoathupa</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">A collection of deployed full-stack applications — each one live, functional, and built to solve real problems.</p>
+  </div>
 
-      /* ── CARD ── */
-      .card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-card);
-        box-shadow: var(--shadow-card);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      }
-      .card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-hover);
-        border-color: var(--border-hover);
-      }
-      .card-header {
-        padding: 1.25rem 1.25rem 1rem;
-        display: flex;
-        align-items: flex-start;
-        gap: 0.875rem;
-        border-bottom: 1px solid var(--border);
-      }
-      .icon-wrap {
-        width: 42px;
-        height: 42px;
-        border-radius: 10px;
-        background: var(--accent-light);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      .icon-wrap svg {
-        width: 20px;
-        height: 20px;
-        stroke: var(--accent-dark);
-        fill: none;
-        stroke-width: 1.6;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-      .card-meta { flex: 1; min-width: 0; }
-      .card-name {
-        font-size: 0.925rem;
-        font-weight: 500;
-        color: var(--text);
-        line-height: 1.3;
-        margin-bottom: 5px;
-      }
-      .badge {
-        display: inline-block;
-        font-size: 10px;
-        padding: 2px 7px;
-        border-radius: 4px;
-        font-weight: 500;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-      .badge-react  { background: #e7f0ff; color: #0a58ca; }
-      .badge-mern   { background: #e7f0ff; color: #0a58ca; }
-      .badge-django { background: #e7f0ff; color: #0a58ca; }
-      .badge-js     { background: #fff3cd; color: #664d03; }
+  <!-- GRID -->
+  <div class="grid-wrap">
+    <div class="grid">
 
-      .card-body {
-        padding: 1rem 1.25rem 1.25rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .card-desc {
-        font-size: 0.825rem;
-        line-height: 1.65;
-        color: var(--text-muted);
-        flex: 1;
-      }
-      .card-links {
-        display: flex;
-        gap: 7px;
-        margin-top: 1rem;
-        flex-wrap: wrap;
-      }
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        font-size: 11.5px;
-        font-weight: 500;
-        padding: 5px 12px;
-        border-radius: var(--radius-btn);
-        border: 1px solid var(--border);
-        color: var(--text-muted);
-        text-decoration: none;
-        transition: background 0.15s, color 0.15s, border-color 0.15s;
-        font-family: 'DM Sans', sans-serif;
-        cursor: pointer;
-        background: transparent;
-        white-space: nowrap;
-      }
-      .btn:hover {
-        background: #cdd2d9;
-        color: var(--text);
-        border-color: rgba(0,0,0,0.15);
-      }
-      .btn-primary {
-        background: var(--accent-light);
-        color: var(--accent-dark);
-        border-color: transparent;
-      }
-      .btn-primary:hover {
-        background: var(--accent);
-        color: #fff;
-        border-color: transparent;
-      }
-
-      /* ── CTA SECTION ── */
-      .cta-section {
-        background: var(--surface);
-        border-top: 1px solid var(--border);
-        padding: 3.5rem 2rem;
-        text-align: center;
-      }
-      .cta-section h2 {
-        font-family: 'DM Serif Display', serif;
-        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-        color: var(--text);
-        margin-bottom: 1.25rem;
-        letter-spacing: -0.02em;
-      }
-      .btn-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 11px 28px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        background: var(--accent);
-        color: #fff;
-        border: none;
-        border-radius: var(--radius-btn);
-        font-family: 'DM Sans', sans-serif;
-        text-decoration: none;
-        cursor: pointer;
-        transition: background 0.2s, transform 0.15s;
-      }
-      .btn-cta:hover {
-        background: var(--accent-dark);
-        transform: translateY(-1px);
-      }
-
-      /* ── FOOTER ── */
-      footer {
-        background: var(--surface);
-        border-top: 1px solid var(--border);
-        padding: 1.25rem 2rem;
-        margin-top: auto;
-      }
-      .footer-inner {
-        max-width: 1000px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.8rem;
-        color: var(--text-muted);
-      }
-      .footer-inner a {
-        color: var(--text-muted);
-        text-decoration: none;
-        transition: color 0.15s;
-      }
-      .footer-inner a:hover { color: var(--accent); }
-    </style>
-  </head>
-
-  <body>
-
-    <!-- NAV -->
-    <nav>
-      <div class="nav-inner">
-        <a class="nav-brand" href="index.html">Lethabo Mosoathupa</a>
-        <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
-          <i class="bi bi-list" style="font-size:1.4rem;"></i>
-        </button>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="resume.html">About Me</a></li>
-          <li><a href="projects.html" class="active">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <main style="flex:1;">
-
-      <!-- HERO -->
-      <div class="hero">
-        <span class="hero-eyebrow">Portfolio</span>
-        <h1 class="hero-title">Projects by<br><em>Lethabo Mosoathupa</em></h1>
-        <div class="hero-divider"></div>
-        <p class="hero-sub">A collection of deployed full-stack applications — each one live, functional, and built to solve real problems.</p>
-      </div>
-
-      <!-- GRID -->
-      <div class="grid-wrap">
-        <div class="grid">
-
-
-
-
-          <!-- Fleet Management -->
-          <div class="card">
-            <div class="card-header">
-              <div class="icon-wrap">
-                <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-              </div>
-              <div class="card-meta">
-                <div class="card-name">Fleet Management System</div>
-                <span class="badge badge-mern">MERN</span>
-              </div>
-            </div>
-            <div class="card-body">
-              <p class="card-desc">Logistics management with vehicle tracking, driver assignments, and order management. Real-time updates via Socket.io with role-based auth and CRUD functionality.</p>
-              <div class="card-links">
-                <a class="btn btn-primary" href="https://fleet-frontend-q9r3.onrender.com" target="_blank">Live App ↗</a>
-                <a class="btn" href="https://github.com/123lethabomosoathupa/mern" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-                <a class="btn" href="https://www.youtube.com/playlist?list=PL8Iu4D-y-VWs4A-WNiwfSwMhUAg5yf96-" target="_blank"><i class="bi bi-youtube"></i> Demo</a>                
-              </div>
-            </div>
+      <!-- 1. Fleet Management -->
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
-
-          <!-- Contact Manager -->
-          <div class="card">
-            <div class="card-header">
-              <div class="icon-wrap">
-                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              </div>
-              <div class="card-meta">
-                <div class="card-name">Contact Manager</div>
-                <span class="badge badge-django">Django + HTMX</span>
-              </div>
-            </div>
-            <div class="card-body">
-              <p class="card-desc">Add, edit, and delete contacts with file uploads secured via Cloudinary. Real-time HTMX updates keep the experience snappy — deployed on Render.</p>
-              <div class="card-links">
-                <a class="btn btn-primary" href="https://contacthub-bvdj.onrender.com" target="_blank">Live App ↗</a>
-                <a class="btn" href="https://github.com/123lethabomosoathupa/contacthub" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-                <a class="btn" href="https://www.youtube.com/watch?v=5prlUpyN8v0&list=PL8Iu4D-y-VWvomuAmD06ydykILpiI7pb1&index=7" target="_blank"><i class="bi bi-youtube"></i> Demo</a>
-              </div>
-            </div>
+          <div class="card-meta">
+            <div class="card-name">Fleet Management System</div>
+            <span class="badge badge-mern">MERN</span>
           </div>
-
-          <!-- Finance Tracker -->
-          <div class="card">
-            <div class="card-header">
-              <div class="icon-wrap">
-                <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              </div>
-              <div class="card-meta">
-                <div class="card-name">Finance Tracker</div>
-                <span class="badge badge-react">React</span>
-              </div>
-            </div>
-            <div class="card-body">
-              <p class="card-desc">Full-stack app for tracking income and expenses in real time. A clean dashboard lets you monitor financial activity and improve personal budgeting.</p>
-              <div class="card-links">
-                <a class="btn btn-primary" href="https://financetracker-nfps.onrender.com" target="_blank">Live App ↗</a>
-                <a class="btn" href="https://github.com/123lethabomosoathupa/financetracker" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-              </div>
-            </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Logistics management with vehicle tracking, driver assignments, and order management. Real-time updates via Socket.io with role-based auth and CRUD functionality.</p>
+          <div class="card-links">
+            <a class="btn btn-primary" href="https://fleet-frontend-q9r3.onrender.com" target="_blank">Live App ↗</a>
+            <a class="btn" href="https://github.com/123lethabomosoathupa/mern" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+            <a class="btn" href="https://www.youtube.com/playlist?list=PL8Iu4D-y-VWs4A-WNiwfSwMhUAg5yf96-" target="_blank"><i class="bi bi-youtube"></i> Demo</a>
           </div>
-
-          
-
-          <!-- Service Manager -->
-          <div class="card">
-            <div class="card-header">
-              <div class="icon-wrap">
-                <svg viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-              </div>
-              <div class="card-meta">
-                <div class="card-name">Service Manager</div>
-                <span class="badge badge-django">Django + HTMX</span>
-              </div>
-            </div>
-            <div class="card-body">
-              <p class="card-desc">Streamlined service record management with add, view, edit, and delete — plus Cloudinary image uploads. Solves the problem of inefficient manual service tracking.</p>
-              <div class="card-links">
-                <a class="btn btn-primary" href="https://service-manager-project-django1.onrender.com" target="_blank">Live App ↗</a>
-                <a class="btn" href="https://github.com/123lethabomosoathupa/service_manager_project_django/tree/main" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-              </div>
-            </div>
-          </div>
-
-
-
-
-
         </div>
       </div>
 
-      <!-- CTA -->
-      <div class="cta-section">
-        <h2>Let's build something together</h2>
-        <a class="btn-cta" href="contact.html">Get in touch <i class="bi bi-arrow-right"></i></a>
+      <!-- 2. Real Estate App -->
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+          </div>
+          <div class="card-meta">
+            <div class="card-name">Real Estate App</div>
+            <span class="badge badge-react">React</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Full-stack real estate platform for browsing, listing, and managing properties. Features property search, detailed listings, and a clean responsive UI — deployed and live.</p>
+          <div class="card-links">
+            <a class="btn btn-primary" href="https://real-estate-7zeh.onrender.com" target="_blank">Live App ↗</a>
+            <a class="btn" href="https://github.com/123lethabomosoathupa/real-estate" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+            <a class="btn" href="https://www.youtube.com/watch?v=ZWmWNngzWi0" target="_blank"><i class="bi bi-youtube"></i> Demo</a>
+          </div>
+        </div>
       </div>
 
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-inner">
-        <span>© 2025 Lethabo Mosoathupa</span>
-        <a href="contact.html">Contact</a>
+      <!-- 3. Finance Tracker -->
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="card-meta">
+            <div class="card-name">Finance Tracker</div>
+            <span class="badge badge-react">React</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Full-stack app for tracking income and expenses in real time. A clean dashboard lets you monitor financial activity and improve personal budgeting.</p>
+          <div class="card-links">
+            <a class="btn btn-primary" href="https://financetracker-nfps.onrender.com" target="_blank">Live App ↗</a>
+            <a class="btn" href="https://github.com/123lethabomosoathupa/financetracker" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+            <a class="btn" href="https://www.youtube.com/playlist?list=PL8Iu4D-y-VWvxU6WQpo176LfwYPZYSMdJ" target="_blank"><i class="bi bi-youtube"></i> Demo</a>
+          </div>
+        </div>
       </div>
-    </footer>
 
-  </body>
+      <!-- 4. Contact Manager -->
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="card-meta">
+            <div class="card-name">Contact Manager</div>
+            <span class="badge badge-django">Django + HTMX</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Add, edit, and delete contacts with file uploads secured via Cloudinary. Real-time HTMX updates keep the experience snappy — deployed on Render.</p>
+          <div class="card-links">
+            <a class="btn btn-primary" href="https://contacthub-bvdj.onrender.com" target="_blank">Live App ↗</a>
+            <a class="btn" href="https://github.com/123lethabomosoathupa/contacthub" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+            <a class="btn" href="https://www.youtube.com/watch?v=5prlUpyN8v0&list=PL8Iu4D-y-VWvomuAmD06ydykILpiI7pb1&index=7" target="_blank"><i class="bi bi-youtube"></i> Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Service Manager -->
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <div class="card-meta">
+            <div class="card-name">Service Manager</div>
+            <span class="badge badge-django">Django + HTMX</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Streamlined service record management with add, view, edit, and delete — plus Cloudinary image uploads. Solves the problem of inefficient manual service tracking.</p>
+          <div class="card-links">
+            <a class="btn btn-primary" href="https://service-manager-project-django1.onrender.com" target="_blank">Live App ↗</a>
+            <a class="btn" href="https://github.com/123lethabomosoathupa/service_manager_project_django/tree/main" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Let's build something together</h2>
+    <a class="btn-cta" href="contact.html">Get in touch <i class="bi bi-arrow-right"></i></a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span>© 2025 Lethabo Mosoathupa</span>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+</body>
 </html>
