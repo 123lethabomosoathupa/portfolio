@@ -9,101 +9,84 @@
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --accent: #2563eb;
-      --accent-light: #dbeafe;
-      --accent-dark: #1d4ed8;
-      --bg: #d8dce2;
-      --surface: #e4e7ec;
-      --surface-raised: #eaecf0;
-      --border: rgba(60,72,90,0.18);
-      --text: #0f1117;
-      --text-muted: #4a5568;
-      --text-subtle: #718096;
+      --bg: #0b0c0e;
+      --surface: #141518;
+      --surface-raised: #1a1c1f;
+      --border: rgba(255,255,255,0.08);
+      --border-strong: rgba(255,255,255,0.16);
+      --text: #ececee;
+      --text-muted: #8f9198;
+      --text-faint: #5c5e66;
+      --accent: #c9a961;
+      --accent-soft: rgba(201,169,97,0.10);
+      --accent-strong: #ddc17e;
       --nav-height: 64px;
-      --radius-card: 12px;
-      --radius-btn: 6px;
-      --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 6px 20px rgba(0,0,0,0.05);
+      --radius: 10px;
+      --radius-sm: 6px;
+      --mono: 'IBM Plex Mono', monospace;
+      --serif: 'Fraunces', serif;
+      --sans: 'Inter', sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
 
-    nav { position: sticky; top: 0; z-index: 100; height: var(--nav-height); background: rgba(216,220,226,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); display: flex; align-items: center; }
-    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 2.5rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
-    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 0.15rem; list-style: none; }
-    .nav-links a { font-size: 0.85rem; font-weight: 400; color: var(--text-muted); text-decoration: none; padding: 6px 14px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
-    .nav-links a:hover { background: rgba(37,99,235,0.08); color: var(--accent-dark); }
-    .nav-links a.active { color: var(--accent-dark); font-weight: 500; background: var(--accent-light); }
+    nav { position: sticky; top: 0; z-index: 100; height: var(--nav-height); background: rgba(11,12,14,0.86); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); display: flex; align-items: center; }
+    .nav-inner { max-width: 1040px; margin: 0 auto; padding: 0 2rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 400; color: var(--text-muted); text-decoration: none; padding: 8px 12px; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+    .nav-links a:hover { color: var(--accent); background: var(--accent-soft); }
+    .nav-links a.active { color: var(--accent); }
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--text); }
-    @media (max-width: 620px) {
+    @media (max-width: 600px) {
       .nav-toggle { display: block; }
-      .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: var(--surface-raised); border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; gap: 0.15rem; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-height); left: 0; right: 0; background: var(--surface); border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; gap: 0.25rem; }
       .nav-links.open { display: flex; }
     }
 
-    .page-wrap { max-width: 800px; margin: 0 auto; padding: 4.5rem 2.5rem 5rem; }
+    .ledger-rule { display: flex; align-items: center; gap: 14px; margin: 0 0 1.25rem; }
+    .ledger-rule::before, .ledger-rule::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .ledger-rule span { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
-    .page-hero { margin-bottom: 3.5rem; }
-    .hero-eyebrow { display: inline-block; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 1rem; background: var(--accent-light); padding: 5px 14px; border-radius: 100px; border: 1px solid rgba(37,99,235,0.2); }
-    .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 5vw, 3rem); color: var(--text); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 0.75rem; }
-    .page-title em { font-style: italic; color: var(--accent); }
-    .rule { width: 32px; height: 2px; background: var(--accent); border-radius: 2px; margin: 1.25rem 0; }
-    .page-sub { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; max-width: 520px; }
+    .page-wrap { max-width: 740px; margin: 0 auto; padding: 4.5rem 2rem 5rem; }
+    .hero { margin-bottom: 3rem; }
+    .hero-title { font-family: var(--serif); font-size: clamp(2.1rem, 5vw, 2.8rem); font-weight: 500; color: var(--text); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .hero-title em { font-style: italic; color: var(--accent); font-weight: 500; }
+    .hero-sub { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
 
-    /* CARD */
-    .card { background: var(--surface-raised); border: 1px solid var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 2rem; margin-bottom: 1.25rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-bottom: 1.25rem; }
+    .card-section-header { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.5rem; }
+    .card-section-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.95rem; flex-shrink: 0; }
+    .card-section-title { font-family: var(--serif); font-weight: 500; font-size: 1.2rem; color: var(--text); letter-spacing: -0.01em; }
+    .card-section-title em { font-style: italic; color: var(--accent); }
 
-    /* CARD HEADER */
-    .card-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
-    .card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; color: var(--accent-dark); font-size: 1rem; flex-shrink: 0; }
-    .card-head-text {}
-    .card-head-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text); letter-spacing: -0.01em; }
-    .card-head-title em { font-style: italic; color: var(--accent); }
-    .card-head-sub { font-size: 0.8rem; color: var(--text-subtle); margin-top: 2px; }
-
-    /* BIO */
-    .bio-text p { font-size: 0.925rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 0.85rem; }
+    .bio-text p { font-size: 0.92rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 0.75rem; }
     .bio-text p:last-child { margin-bottom: 0; }
-    .bio-text strong { color: var(--text); font-weight: 600; }
+    .bio-text strong { color: var(--text); font-weight: 500; }
 
-    /* SKILL CATEGORIES */
-    .skill-categories { display: flex; flex-direction: column; gap: 1.5rem; }
-    .skill-category {}
-    .skill-cat-header { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.875rem; }
-    .skill-cat-icon { width: 28px; height: 28px; border-radius: 7px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; color: var(--accent-dark); font-size: 0.75rem; flex-shrink: 0; }
-    .skill-cat-label { font-size: 0.78rem; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.08em; }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 7px; }
-    .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 0.82rem; padding: 5px 13px; border-radius: 100px; background: #d2d6dd; border: 1px solid var(--border); color: var(--text); font-weight: 400; transition: background 0.15s, border-color 0.15s; }
-    .pill:hover { background: var(--accent-light); border-color: rgba(37,99,235,0.3); color: var(--accent-dark); }
-    .pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: 0.6; }
+    .location-line { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-faint); margin-top: 1.25rem; }
+    .location-line i { color: var(--accent); }
 
-    .cat-divider { height: 1px; background: var(--border); margin: 0.25rem 0; }
+    .pill-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { display: inline-block; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.02em; padding: 6px 13px; border-radius: 5px; background: var(--bg); border: 1px solid var(--border-strong); color: var(--text); font-weight: 400; }
 
-    /* PROFESSIONAL SKILLS */
-    .prof-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.875rem; }
-    .prof-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.875rem 1rem; background: rgba(0,0,0,0.03); border: 1px solid var(--border); border-radius: 8px; }
-    .prof-item-icon { color: var(--accent); font-size: 0.875rem; margin-top: 1px; flex-shrink: 0; }
-    .prof-item-label { font-size: 0.845rem; color: var(--text-muted); line-height: 1.5; }
-
-    /* FUN FACTS */
     .fun-list { list-style: none; }
-    .fun-list li { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.875rem; }
+    .fun-list li { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0.75rem; }
     .fun-list li:last-child { border-bottom: none; }
-    .fun-icon { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    .fun-list li .li-icon { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
 
-    .btn-projects { display: inline-flex; align-items: center; gap: 6px; margin-top: 1.5rem; padding: 10px 22px; font-size: 0.875rem; font-weight: 500; background: var(--accent); color: #fff; border: 1px solid transparent; border-radius: var(--radius-btn); font-family: 'DM Sans', sans-serif; text-decoration: none; transition: all 0.15s; }
-    .btn-projects:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.35); }
+    .btn-projects { display: inline-flex; align-items: center; gap: 6px; margin-top: 1.5rem; padding: 11px 24px; font-size: 0.875rem; font-weight: 500; background: transparent; color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); font-family: var(--sans); text-decoration: none; transition: all 0.15s; }
+    .btn-projects:hover { border-color: var(--accent); color: var(--accent); }
 
-    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; margin-top: auto; }
-    .footer-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; color: var(--text-subtle); }
-    .footer-inner a { color: var(--text-subtle); text-decoration: none; transition: color 0.15s; }
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 1.25rem 2rem; margin-top: auto; }
+    .footer-inner { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; font-family: var(--mono); color: var(--text-faint); }
+    .footer-inner a { color: var(--text-faint); text-decoration: none; transition: color 0.15s; }
     .footer-inner a:hover { color: var(--accent); }
-    .footer-links { display: flex; gap: 1.25rem; }
   </style>
 </head>
 <body>
@@ -116,7 +99,7 @@
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="resume.html" class="active">About Me</a></li>
+        <li><a href="resume.html" class="active">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -126,165 +109,93 @@
   <main style="flex:1;">
     <div class="page-wrap">
 
-      <div class="page-hero">
-        <span class="hero-eyebrow">About Me</span>
-        <h1 class="page-title">Developer, problem solver,<br><em>lifelong learner.</em></h1>
-        <div class="rule"></div>
-        <p class="page-sub">Based in Johannesburg, South Africa. I build full-stack applications and am actively working toward a career as a software developer.</p>
+      <div class="hero">
+        <div class="ledger-rule"><span>About Me</span></div>
+        <h1 class="hero-title">A quick look into<br><em>who I am</em></h1>
+        <p class="hero-sub">Developer, problem solver, and lifelong learner.</p>
       </div>
 
-      <!-- BIO -->
+      <!-- Bio -->
       <div class="card">
-        <div class="card-head">
-          <div class="card-icon"><i class="bi bi-person"></i></div>
-          <div class="card-head-text">
-            <div class="card-head-title">Hello, I'm <em>Lethabo</em></div>
-            <div class="card-head-sub">Software Developer · Johannesburg, South Africa</div>
-          </div>
+        <div class="card-section-header">
+          <div class="card-section-icon"><i class="bi bi-person"></i></div>
+          <div class="card-section-title">Hello, I'm <em>Lethabo</em></div>
         </div>
         <div class="bio-text">
-          <p>I'm <strong>Lethabo Mosoathupa</strong>, a software developer who enjoys solving technical problems and learning through hands-on coding.</p>
-          <p>I'm usually the first to fix technical issues in my circle, and I love playing with code to see what I can build or improve. I work well in teams, enjoy helping others, and consistently aim to deliver work ahead of schedule.</p>
-          <p>For me, <strong>"Simplicity"</strong> is the key principle. Simple solutions are easier to maintain, easier to understand, and get the job done effectively.</p>
+          <p>I'm <strong>Lethabo Mosoathupa</strong>, a junior software developer focused on building reliable, well-structured systems.</p>
+          <p>I work well in teams, communicate clearly, and aim to deliver early rather than late. I'm committed to learning, improving, and bringing value wherever I go.</p>
+          <p>For me, <strong>simplicity</strong> is the standard. A simple solution is easier to trust, easier to maintain, and gets the job done.</p>
+        </div>
+        <div class="location-line"><i class="bi bi-geo-alt"></i> Pretoria (primary) &middot; Johannesburg &middot; Remote</div>
+      </div>
+
+      <!-- Education -->
+      <div class="card">
+        <div class="card-section-header">
+          <div class="card-section-icon"><i class="bi bi-mortarboard"></i></div>
+          <div class="card-section-title"><em>Education</em></div>
+        </div>
+        <div class="bio-text">
+          <p><strong>Java Developer &mdash; Code College</strong><br>1-year bootcamp &middot; <a href="https://codecollege.co.za/" target="_blank" style="color: var(--accent); text-decoration: none;">codecollege.co.za</a></p>
         </div>
       </div>
 
-      <!-- TECHNICAL SKILLS -->
+      <!-- Skills -->
       <div class="card">
-        <div class="card-head">
-          <div class="card-icon"><i class="bi bi-code-slash"></i></div>
-          <div class="card-head-text">
-            <div class="card-head-title">Technical <em>Skills</em></div>
-            <div class="card-head-sub">Languages, frameworks, databases &amp; tools</div>
-          </div>
+        <div class="card-section-header">
+          <div class="card-section-icon"><i class="bi bi-tools"></i></div>
+          <div class="card-section-title"><em>Skills</em> &amp; Tools</div>
         </div>
-
-        <div class="skill-categories">
-
-          <!-- Frontend -->
-          <div class="skill-category">
-            <div class="skill-cat-header">
-              <div class="skill-cat-icon"><i class="bi bi-window"></i></div>
-              <span class="skill-cat-label">Frontend</span>
-            </div>
-            <div class="pill-row">
-              <span class="pill"><span class="pill-dot"></span>HTML5</span>
-              <span class="pill"><span class="pill-dot"></span>CSS3</span>
-              <span class="pill"><span class="pill-dot"></span>JavaScript (ES6+)</span>
-              <span class="pill"><span class="pill-dot"></span>React</span>
-              <span class="pill"><span class="pill-dot"></span>Next.js</span>
-              <span class="pill"><span class="pill-dot"></span>HTMX</span>
-              <span class="pill"><span class="pill-dot"></span>Responsive Design</span>
-            </div>
-          </div>
-
-          <div class="cat-divider"></div>
-
-          <!-- Backend -->
-          <div class="skill-category">
-            <div class="skill-cat-header">
-              <div class="skill-cat-icon"><i class="bi bi-server"></i></div>
-              <span class="skill-cat-label">Backend</span>
-            </div>
-            <div class="pill-row">
-              <span class="pill"><span class="pill-dot"></span>Java</span>
-              <span class="pill"><span class="pill-dot"></span>Spring Boot</span>
-              <span class="pill"><span class="pill-dot"></span>Spring Security (JWT)</span>
-              <span class="pill"><span class="pill-dot"></span>Python</span>
-              <span class="pill"><span class="pill-dot"></span>Django</span>
-              <span class="pill"><span class="pill-dot"></span>Node.js</span>
-              <span class="pill"><span class="pill-dot"></span>Express.js</span>
-              <span class="pill"><span class="pill-dot"></span>REST APIs</span>
-            </div>
-          </div>
-
-          <div class="cat-divider"></div>
-
-          <!-- Database -->
-          <div class="skill-category">
-            <div class="skill-cat-header">
-              <div class="skill-cat-icon"><i class="bi bi-database"></i></div>
-              <span class="skill-cat-label">Database</span>
-            </div>
-            <div class="pill-row">
-              <span class="pill"><span class="pill-dot"></span>PostgreSQL</span>
-              <span class="pill"><span class="pill-dot"></span>MySQL</span>
-              <span class="pill"><span class="pill-dot"></span>MongoDB</span>
-              <span class="pill"><span class="pill-dot"></span>SQL</span>
-            </div>
-          </div>
-
-          <div class="cat-divider"></div>
-
-          <!-- Tools & DevOps -->
-          <div class="skill-category">
-            <div class="skill-cat-header">
-              <div class="skill-cat-icon"><i class="bi bi-tools"></i></div>
-              <span class="skill-cat-label">Tools &amp; DevOps</span>
-            </div>
-            <div class="pill-row">
-              <span class="pill"><span class="pill-dot"></span>Git</span>
-              <span class="pill"><span class="pill-dot"></span>GitHub</span>
-              <span class="pill"><span class="pill-dot"></span>Render (Deployment)</span>
-              <span class="pill"><span class="pill-dot"></span>Cloudinary</span>
-              <span class="pill"><span class="pill-dot"></span>Socket.io</span>
-              <span class="pill"><span class="pill-dot"></span>Swagger / OpenAPI</span>
-            </div>
-          </div>
-
+        <div class="pill-grid" style="margin-bottom: 1.5rem;">
+          <span class="pill">Web Development</span>
+          <span class="pill">Problem Solving</span>
+          <span class="pill">Version Control (Git)</span>
+          <span class="pill">REST APIs</span>
+          <span class="pill">Responsive Design</span>
+        </div>
+        <div class="card-section-header" style="margin-top: 1.25rem;">
+          <div class="card-section-icon"><i class="bi bi-code-slash"></i></div>
+          <div class="card-section-title">Languages I <em>use</em></div>
+        </div>
+        <div class="pill-grid">
+          <span class="pill">Java</span>
+          <span class="pill">Spring Boot</span>
+          <span class="pill">SQL / PostgreSQL</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">React</span>
+          <span class="pill">Python</span>
+          <span class="pill">Django</span>
+          <span class="pill">Node.js</span>
         </div>
       </div>
 
-      <!-- PROFESSIONAL SKILLS -->
+      <!-- Project Focus -->
       <div class="card">
-        <div class="card-head">
-          <div class="card-icon"><i class="bi bi-briefcase"></i></div>
-          <div class="card-head-text">
-            <div class="card-head-title">Professional <em>Strengths</em></div>
-            <div class="card-head-sub">Soft skills &amp; working style</div>
-          </div>
+        <div class="card-section-header">
+          <div class="card-section-icon"><i class="bi bi-diagram-3"></i></div>
+          <div class="card-section-title">What I've been <em>building</em></div>
         </div>
-        <div class="prof-grid">
-          <div class="prof-item">
-            <i class="bi bi-puzzle prof-item-icon"></i>
-            <span class="prof-item-label">Problem Solving &amp; Analytical Thinking</span>
-          </div>
-          <div class="prof-item">
-            <i class="bi bi-people prof-item-icon"></i>
-            <span class="prof-item-label">Team Collaboration &amp; Communication</span>
-          </div>
-          <div class="prof-item">
-            <i class="bi bi-check2-circle prof-item-icon"></i>
-            <span class="prof-item-label">Attention to Detail &amp; Code Quality</span>
-          </div>
-          <div class="prof-item">
-            <i class="bi bi-lightning prof-item-icon"></i>
-            <span class="prof-item-label">Fast Learner &amp; Self-Directed</span>
-          </div>
-          <div class="prof-item">
-            <i class="bi bi-arrow-repeat prof-item-icon"></i>
-            <span class="prof-item-label">Adaptable &amp; Open to Feedback</span>
-          </div>
-          <div class="prof-item">
-            <i class="bi bi-clock prof-item-icon"></i>
-            <span class="prof-item-label">Delivers Early, Not Late</span>
-          </div>
+        <div class="bio-text">
+          <p>My projects are all full-stack, deployed, and built to mirror real operational systems — not tutorials. Each one covers a different domain but shares the same core: authentication, CRUD workflows, and data that needs to stay consistent and trustworthy.</p>
         </div>
+        <ul class="fun-list" style="margin-top: 1rem;">
+          <li><i class="bi bi-cash-coin li-icon"></i><span><strong style="color: var(--text); font-weight: 500;">Financial tracking</strong> — real-time income/expense monitoring on a <a href="https://financetracker-nfps.onrender.com" target="_blank" style="color: var(--accent); text-decoration: none;">live dashboard</a>.</span></li>
+          <li><i class="bi bi-truck li-icon"></i><span><strong style="color: var(--text); font-weight: 500;">Logistics &amp; operations</strong> — a <a href="https://fleet-frontend-q9r3.onrender.com" target="_blank" style="color: var(--accent); text-decoration: none;">fleet management system</a> with real-time updates, role-based access, and multi-entity tracking (vehicles, drivers, orders).</span></li>
+          <li><i class="bi bi-house li-icon"></i><span><strong style="color: var(--text); font-weight: 500;">Property &amp; real estate</strong> — a <a href="https://real-estate-7zeh.onrender.com/" target="_blank" style="color: var(--accent); text-decoration: none;">listing platform</a> with search, browsing, and secure listing management.</span></li>
+          <li><i class="bi bi-clipboard-check li-icon"></i><span><strong style="color: var(--text); font-weight: 500;">Service &amp; record management</strong> — a <a href="https://service-manager-project-django1.onrender.com" target="_blank" style="color: var(--accent); text-decoration: none;">service manager</a> replacing manual tracking with structured records and image uploads.</span></li>
+          <li><i class="bi bi-person-lines-fill li-icon"></i><span><strong style="color: var(--text); font-weight: 500;">Contact &amp; data management</strong> — a <a href="https://contacthub-bvdj.onrender.com" target="_blank" style="color: var(--accent); text-decoration: none;">contact manager</a> with secure file handling and real-time UI updates.</span></li>
+        </ul>
       </div>
 
-      <!-- ABOUT ME -->
+      <!-- More about me -->
       <div class="card">
-        <div class="card-head">
-          <div class="card-icon"><i class="bi bi-stars"></i></div>
-          <div class="card-head-text">
-            <div class="card-head-title">Beyond the <em>code</em></div>
-            <div class="card-head-sub">A few things about me</div>
-          </div>
+        <div class="card-section-header">
+          <div class="card-section-icon"><i class="bi bi-stars"></i></div>
+          <div class="card-section-title">More <em>about me</em></div>
         </div>
         <ul class="fun-list">
-          <li><i class="bi bi-lightbulb fun-icon"></i><span>A jack of all trades — curious, adaptable, and always exploring new technologies and ideas.</span></li>
-          <li><i class="bi bi-geo-alt fun-icon"></i><span>Based in Johannesburg, Gauteng — open to opportunities in local fintech, banking, and insurance sectors.</span></li>
-          <li><i class="bi bi-cup-hot fun-icon"></i><span>Coffee is my coding fuel — best paired with a challenging problem to solve.</span></li>
+          <li><i class="bi bi-lightbulb li-icon"></i><span>Curious and adaptable — always building something new to learn it properly</span></li>
+          <li><i class="bi bi-cup-hot li-icon"></i><span>Coffee is my coding fuel</span></li>
         </ul>
         <a class="btn-projects" href="projects.html">View my projects <i class="bi bi-arrow-right"></i></a>
       </div>
@@ -294,12 +205,8 @@
 
   <footer>
     <div class="footer-inner">
-      <span>© 2025 Lethabo Mosoathupa</span>
-      <div class="footer-links">
-        <a href="https://github.com/123lethabomosoathupa" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/lethabo-mosoathupa-211558140/" target="_blank">LinkedIn</a>
-        <a href="contact.html">Contact</a>
-      </div>
+      <span>&copy; 2025 Lethabo Mosoathupa</span>
+      <a href="contact.html">Contact</a>
     </div>
   </footer>
 
