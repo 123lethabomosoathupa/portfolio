@@ -71,6 +71,12 @@
       .grid-wrap { max-width: 1040px; margin: 0 auto; padding: 1rem 2rem 4rem; }
       .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
 
+      /* SECTION HEADER (used for Learning section) */
+      .section-wrap { max-width: 1040px; margin: 0 auto; padding: 0 2rem 4rem; }
+      .section-head { margin-bottom: 1.5rem; }
+      .section-head h2 { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.75rem); font-weight: 500; color: var(--text); letter-spacing: -0.01em; margin-bottom: 0.4rem; }
+      .section-head p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; max-width: 480px; }
+
       /* CARD */
       .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; overflow: hidden; transition: border-color 0.2s ease; }
       .card:hover { border-color: var(--border-strong); }
@@ -234,6 +240,56 @@
                 <a class="btn btn-primary" href="https://contacthub-bvdj.onrender.com" target="_blank">Live App ↗</a>
                 <a class="btn" href="https://github.com/123lethabomosoathupa/contacthub" target="_blank"><i class="bi bi-github"></i> GitHub</a>
                 <a class="btn" href="https://www.youtube.com/watch?v=5prlUpyN8v0&list=PL8Iu4D-y-VWvomuAmD06ydykILpiI7pb1&index=7" target="_blank"><i class="bi bi-youtube"></i> Demo</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- LEARNING -->
+      <div class="section-wrap">
+        <div class="section-head">
+          <div class="ledger-rule"><span>Learning</span></div>
+          <h2>Study playlists</h2>
+          <p>Video series I've worked through to build up core language and database fundamentals.</p>
+        </div>
+        <div class="grid">
+
+          <!-- SQL -->
+          <div class="card">
+            <div class="card-header">
+              <div class="icon-wrap">
+                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+              </div>
+              <div class="card-meta">
+                <div class="card-name">SQL Fundamentals</div>
+                <span class="badge">Playlist</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-desc">A video series covering core SQL — querying, joins, and database fundamentals.</p>
+              <div class="card-links">
+                <a class="btn btn-primary" href="https://www.youtube.com/playlist?list=PL8Iu4D-y-VWteu9QDTILQcYv0WA41AJP3" target="_blank"><i class="bi bi-youtube"></i> Watch Playlist ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Java -->
+          <div class="card">
+            <div class="card-header">
+              <div class="icon-wrap">
+                <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="card-meta">
+                <div class="card-name">Java</div>
+                <span class="badge">Playlist</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-desc">A video series covering Java language fundamentals and core programming concepts.</p>
+              <div class="card-links">
+                <a class="btn btn-primary" href="https://www.youtube.com/playlist?list=PLN3wwrb5oCFQ" target="_blank"><i class="bi bi-youtube"></i> Watch Playlist ↗</a>
               </div>
             </div>
           </div>
